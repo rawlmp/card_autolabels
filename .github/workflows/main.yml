@@ -1,0 +1,60 @@
+on:
+  issues:
+    types: [labeled]
+
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: A job to say hello
+    steps:
+      # To use this repository's private action,
+      # you must check out the repository
+      - name: Checkout
+        uses: actions/checkout@master
+      - name: Move to Ready
+        uses: ./ # Uses an action in the root directory
+        id: hello
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          label: "ready"
+          column: "Ready"
+      - name: Move to In Progress
+        uses: ./
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          label: "in progress"
+          column: "In Progress"
+          remove-label: "test, review, ready"
+       
+      - name: Move to Unique
+        uses: ./
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          label: "unique"
+          column: "Unique"
+          remove-label: "ready, in progress"
+          
+      - name: Move to Review
+        uses: ./
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          label: "review"
+          column: "Review"
+          remove-label: "ready, in progress"
+          
+      - name: Move to Refl
+        uses: ./
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          label: "refl"
+          column: "Refl"
+      
+      
+      - name: Move to First
+        uses: ./
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          label: "good first issue"
+          column: "First"
+          remove-label: "ready, in progress, review"
+       

@@ -1,0 +1,24 @@
+{
+  "name": "Card-automation",
+  "version": "1.0.0",
+  "description": "I don't know what I am doing",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bishalrai96/Card-automation.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bishalrai96/Card-automation/issues"
+  },
+  "homepage": "https://github.com/bishalrai96/Card-automation#readme",
+  "dependencies": {
+    "@actions/core": "^1.4.0",
+    "@actions/github": "^5.0.0"
+  }
+}
