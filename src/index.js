@@ -11,9 +11,9 @@ try {
         const { eventName, payload } = github.context;
         removeLabels = core.getInput('remove-label').split(",").map(label => label.trim());
 
-        if (eventName !== "issues") {
-            throw new Error("Only issues event accepting at the moment");
-        }
+        // if (eventName !== "issues") {
+        //     throw new Error("Only issues event accepting at the moment");
+        // }
 
         // get required information for graphql query
         url = payload.issue.html_url;
