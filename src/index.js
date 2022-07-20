@@ -21,7 +21,7 @@ try {
         if (payload.label.name == label) {
             get_which_projects_it_is_in_currently = `query { 
               resource(url:"${url}") {
-                ... on Issue {
+                ... on Pull {
                   id
                   repository {
                     url
