@@ -16,7 +16,7 @@ try {
         // }
 
         // get required information for graphql query
-        url = payload.issue.html_url;
+        url = payload.pull_request.html_url;
 
         if (payload.label.name == label) {
             get_which_projects_it_is_in_currently = `query { 
